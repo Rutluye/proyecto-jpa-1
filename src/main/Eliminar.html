@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Eliminar Persona</title>
+</head>
+<body>
+    <h1>Eliminar Persona</h1>
+    <form th:action="@{/eliminar}" method="post">
+        <label for="personas">Selecciona una persona para eliminar:</label>
+        <select id="personas" name="personaId">
+            <!-- Utiliza la sintaxis de Thymeleaf para iterar sobre la lista de personas y mostrar cada opción en el select -->
+            <option th:each="persona : ${personas}" th:value="${persona.id}" th:text="${persona.nombre + ' ' + persona.apellido}"></option>
+        </select>
+        <input type="submit" value="Eliminar">
+    </form>
+    <!-- Agrega un enlace para volver a la página de inicio -->
+    <a href="/">Volver</a>
+</body>
+</html>
